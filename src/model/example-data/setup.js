@@ -6,12 +6,12 @@ module.exports = async (model) => {
     console.log('Setting up example data...');
 
     for (let i = 1; i <= 5; i++)
-        await model.Fabric.create({
+        await model['Fabric'].create({
             image: imageData,
             name: `Häkelblüten, die ${i}te`
         });
 
-    const user = new model.User();
+    const user = new model['User']();
     user.email = 'tester@test.de';
     await user.setPassword('12345');
 

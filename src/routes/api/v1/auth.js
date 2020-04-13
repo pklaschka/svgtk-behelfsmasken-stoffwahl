@@ -23,7 +23,7 @@ function getToken(subject) {
 }
 
 async function authenticate(email, password) {
-    const user = await model.User.authenticate(email, password);
+    const user = await model['User'].authenticate(email, password);
     return getToken(user.id);
 }
 
@@ -35,7 +35,7 @@ async function jwtAuthorizationMiddleware(req, res, next) {
 
         const token = req.header('Authorization').replace('Bearer ', '');
         const payload = jwt.verify(token, secret);
-        req['user'] = await model.User.findByPk(payload.subject);
+        req['user'] = await model['User'].findByPk(payload.subject);
 
         if (!req.user) {
             return res.sendStatus(403);

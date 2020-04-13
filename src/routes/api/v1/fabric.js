@@ -5,7 +5,7 @@ const Jimp = require('jimp');
 const model = require('@alias/model');
 
 router.param('fabricId', async (req, res, next, id) => {
-    const fabric = await model.Fabric.findByPk(id);
+    const fabric = await model['Fabric'].findByPk(id);
 
     if (fabric) {
         req.fabric = fabric;
@@ -16,7 +16,7 @@ router.param('fabricId', async (req, res, next, id) => {
 });
 
 router.get('/', async (req, res) => {
-    return res.json(await model.Fabric.findAll({attributes: ['id', 'name']}))
+    return res.json(await model['Fabric'].findAll({attributes: ['id', 'name']}))
 });
 
 router.post('/', async (req, res) => {
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     const imageBuffer = await image.cover(1024, 1024).quality(95).getBufferAsync(Jimp.MIME_JPEG);
 
     // Save the fabric to the DB
-    const fabric = await model.Fabric.create({
+    const fabric = await model['Fabric'].create({
         name: req.body.name,
         image: imageBuffer
     });

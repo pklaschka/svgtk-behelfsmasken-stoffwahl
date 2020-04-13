@@ -4,8 +4,7 @@ const model = require('@alias/model');
 
 router.param('id', async (req, res, next, id) => {
     try {
-        const fabric = await model.Fabric.findByPk(id)
-        req.fabric = fabric;
+        req.fabric = await model['Fabric'].findByPk(id);
         next();
     } catch (e) {
         next(new Error('not found'))
