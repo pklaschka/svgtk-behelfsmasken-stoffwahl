@@ -9,19 +9,14 @@ var {Sequelize} = require('sequelize')
 
 let sequelize;
 if (process.env.DATABASE_URL) {
-    // the application is executed on Heroku ... use the postgres database
     sequelize = new Sequelize(process.env.DATABASE_URL, {
         dialect: 'postgres',
-        // protocol: 'postgres',
-        // port:     match[4],
-        // host:     match[3],
         logging: false //false
     })
 } else {
     if (env !== 'development') {
         throw new Error('PostgresSQL user data not found in non-development environment.');
     }
-    // the application is executed on the local machine ... use mysql
     sequelize = new Sequelize('sqlite::memory:')
 }
 

@@ -22,7 +22,7 @@ router.get('/:id', function (req, res) {
 });
 
 router.get('/:id/image', (req, res) => {
-    res.contentType('image/png')
+    res.contentType('image/jpeg')
     return res.send(req.fabric.image);
 });
 

@@ -24,5 +24,7 @@ router.post('/auth', async (req, res) => {
     }
 });
 
+router.use('/fabric', auth.jwtAuthorizationMiddleware, require('./fabric'));
+
 module.exports = router;
 

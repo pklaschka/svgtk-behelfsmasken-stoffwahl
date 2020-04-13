@@ -34,13 +34,7 @@ async function jwtAuthorizationMiddleware(req, res, next) {
         }
 
         const token = req.header('Authorization').replace('Bearer ', '');
-
-        console.log(1);
-
         const payload = jwt.verify(token, secret);
-
-        console.log(2);
-
         req['user'] = await model.User.findByPk(payload.subject);
 
         if (!req.user) {
