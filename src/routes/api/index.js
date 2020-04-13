@@ -19,7 +19,7 @@ router.use(function(req, res, next) {
     next();
 });
 
-router.use(bodyParser)
+router.use(bodyParser.json())
 
 router.get('/', (req, res) => res.json({availableVersions: versions}))
 
