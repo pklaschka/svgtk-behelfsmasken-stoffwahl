@@ -1,8 +1,28 @@
 extends layout
 
 block content
-    ul
-    each fabric in fabrics
-        li
-            img(src=`/fabric/${fabric.id}/image`)
-            p=fabric.name
+    h1 Stück vom Glück Textilkunst Behelfsmaksen-Anfrage
+    p
+        | Aufgrund der aktuellen Lage biete ich zurzeit Behelfsmasken aus verschiedenen Baumwollstoffen an.
+    p
+        | Bitte suchen Sie sich bei Anfragen einen der verfügbaren Stoffe aus und #[strong nennen Sie bei der Bestellung die Stoffnummer].
+    p Alle Angaben zur Verfügbarkeit von Stoffen sind #[strong ohne Gewähr].
+
+
+    h2 Verfügbare Stoffe
+    ul(uk-grid)
+        each fabric in fabrics
+            li.uk-width-1-1(class="uk-width-1-2@s uk-width-1-4@m uk-width-1-6@l")
+                div(uk-card).uk-card-default
+                    .uk-card-body
+                        h3.uk-card-title Stoff #{fabric.id}
+                        p=fabric.name
+                    .uk-card-media.uk-card-media-bottom
+                        img(src=`/fabric/${fabric.id}/image`)
+        else
+            p Derzeit sind keine Stoffe im System als "verfügbar" gekennzeichnet. Bitte versuche Sie es später erneut.
+
+    h2 Anfrage
+    p Bitte stellen Sie Ihre Anfrage telefonisch (#[a(href='tel:00499317844181') 0931 7844181]) oder per
+        | &nbsp;E-Mail (#[a(href='mailto:kontakt@stueckvomgluecktextilkunst.de') kontakt@stueckvomgluecktextilkunst.de]):
+    a(href).uk-button.uk-button-primary Unverbindliche Anfrage stellen...

@@ -1,9 +1,28 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/css/style.css')
-  body
-    block content
+    head
+        title=title || 'Stück vom Glück Stoffwahl'
+        link(rel='stylesheet', href='/css/style.css')
+        meta(name='viewport' content='width=device-width')
+        meta(name='robots' content='noindex,nofollow')
+    body
+        header.uk-navbar-container.uk-background-primary
+            nav(uk-navbar)
+                .uk-navbar-left
+                    div.uk-navbar-item.uk-logo
+                        img(src='/img/logo.svg' width=130)
+                    ul.uk-navbar-nav
+                        li.uk-active
+                            a Start
+                        li
+                            a Impressum
+                        li
+                            a Datenschutz
+        main.uk-padding
+            block content
 
+        hr
+        footer.uk-padding
+            p Die Website und das dahinterstehende Verwaltungssystem wurde von Pablo Klaschka ( #[a(target='_blank' href='https://www.pabloklaschka.de') www.pabloklaschka.de]) entwickelt.
+            p Der Quellcode steht offen in #[a(target='_blank' href='https://github.com/pklaschka/svgtk-behelfsmasken-stoffwahl') GitHub] zur Verfügung.
     script(src='/js/uikit.min.js')
