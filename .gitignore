@@ -3,3 +3,5 @@ node_modules
 # Editor Folders
 .idea
 .vs-code
+
+public/css/style.*

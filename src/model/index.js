@@ -15,12 +15,14 @@ if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
         // protocol: 'postgres',
         // port:     match[4],
         // host:     match[3],
-        logging: true //false
+        logging: false //false
     })
 } else {
     // the application is executed on the local machine ... use mysql
     sequelize = new Sequelize('sqlite::memory:')
 }
+
+let db = { sequelize, Sequelize }
 
 fs
     .readdirSync(__dirname)
@@ -43,6 +45,7 @@ db.sequelize = sequelize;
 db.sequelize.sync().then(async () => {
     if (env === 'development') {
         // Setup test data
+        await (require('./example-data/setup'))(db);
     }
 });
 

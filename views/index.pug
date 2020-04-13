@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    ul
+    each fabric in fabrics
+        li
+            img(src=`/fabric/${fabric.id}/image`)
+            p=fabric.name
