@@ -18,6 +18,9 @@ if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
         logging: false //false
     })
 } else {
+    if (env !== 'development') {
+        throw new Error('PostgresSQL user data not found in non-development environment.');
+    }
     // the application is executed on the local machine ... use mysql
     sequelize = new Sequelize('sqlite::memory:')
 }
