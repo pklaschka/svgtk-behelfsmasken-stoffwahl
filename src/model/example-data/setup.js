@@ -11,5 +11,9 @@ module.exports = async (model) => {
             name: `Häkelblüten, die ${i}te`
         });
 
+    const user = new model.User();
+    user.email = 'tester@test.de';
+    await user.setPassword('12345');
+
     console.log('Example data setup completed.')
 }
