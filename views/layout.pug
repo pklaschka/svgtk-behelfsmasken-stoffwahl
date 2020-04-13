@@ -5,7 +5,10 @@ html
         link(rel='stylesheet', href='/css/style.css')
         meta(name='viewport' content='width=device-width')
         meta(name='robots' content='noindex,nofollow')
-    body
+
+        script(src='https://kit.fontawesome.com/5723931a0c.js', crossorigin="anonymous")
+
+        body
         header.uk-navbar-container.uk-background-primary
             nav(uk-navbar)
                 .uk-navbar-left
@@ -18,6 +21,14 @@ html
                             a(href='/impressum') Impressum
                         li(class=(active==='datenschutz'?'uk-active':''))
                             a(href='/datenschutz') Datenschutz
+                .uk-navbar-right
+                    ul.uk-icon-nav.uk-navbar-nav
+                        li
+                            a
+                                i.fab.fa-instagram
+                        li
+                            a
+                                i.fab.fa-facebook
         main.uk-padding
             block content
 
