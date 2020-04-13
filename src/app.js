@@ -6,6 +6,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
+var express_enforces_ssl = require('express-enforces-ssl');
+
 
 const indexRouter = require('./routes');
 
@@ -14,6 +16,11 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, '..', 'views'));
 app.set('view engine', 'pug');
+
+
+// Enforce SSL
+app.enable('trust proxy');
+app.use(express_enforces_ssl());
 
 app.use(logger('dev'));
 app.use(express.json());
