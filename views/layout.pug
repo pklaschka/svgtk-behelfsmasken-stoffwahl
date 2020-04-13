@@ -12,12 +12,12 @@ html
                     div.uk-navbar-item.uk-logo
                         img(src='/img/logo.svg' width=130)
                     ul.uk-navbar-nav
-                        li.uk-active
-                            a Start
-                        li
-                            a Impressum
-                        li
-                            a Datenschutz
+                        li(class=(active==='start'?'uk-active':''))
+                            a(href='/') Start
+                        li(class=(active==='impressum'?'uk-active':''))
+                            a(href='/impressum') Impressum
+                        li(class=(active==='datenschutz'?'uk-active':''))
+                            a(href='/datenschutz') Datenschutz
         main.uk-padding
             block content
 

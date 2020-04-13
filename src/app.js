@@ -6,7 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
-var express_enforces_ssl = require('express-enforces-ssl');
+const express_enforces_ssl = require('express-enforces-ssl');
 
 
 const indexRouter = require('./routes');
@@ -19,8 +19,10 @@ app.set('view engine', 'pug');
 
 
 // Enforce SSL
-app.enable('trust proxy');
-app.use(express_enforces_ssl());
+if (process.env.NODE_ENV === 'production') {
+  app.enable('trust proxy');
+  app.use(express_enforces_ssl());
+}
 
 app.use(logger('dev'));
 app.use(express.json());

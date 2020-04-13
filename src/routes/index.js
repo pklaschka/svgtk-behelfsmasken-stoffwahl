@@ -6,9 +6,13 @@ const model = require('@alias/model');
 router.get('/', async (req, res) => {
     const fabrics = await model.Fabric.findAll({attributes: ['id', 'name']});
     res.render('index', {
-        fabrics
+        fabrics,
+        active: 'start'
     });
 });
+
+router.get('/impressum', (req, res) => res.render('impressum', {active: 'impressum'}))
+router.get('/datenschutz', (req, res) => res.render('datenschutz', {active: 'datenschutz'}))
 
 router.use('/fabric', require('./fabric'));
 router.use('/api', require('./api'));
