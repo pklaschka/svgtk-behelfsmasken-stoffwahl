@@ -8,9 +8,9 @@ const env = process.env['NODE_ENV'] || 'development';
 var {Sequelize} = require('sequelize')
 
 let sequelize;
-if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
+if (process.env.DATABASE) {
     // the application is executed on Heroku ... use the postgres database
-    sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
+    sequelize = new Sequelize(process.env.DATABASE, {
         dialect: 'postgres',
         // protocol: 'postgres',
         // port:     match[4],
