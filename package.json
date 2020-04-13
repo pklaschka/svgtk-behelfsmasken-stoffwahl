@@ -14,6 +14,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "module-alias": "^2.2.2",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
     "node-sass-middleware": "0.11.0",
@@ -23,5 +24,10 @@
   },
   "devDependencies": {
     "sqlite3": "^4.1.1"
+  },
+  "_moduleAliases": {
+    "@alias/package": "./package.json",
+    "@alias/model": "src/model",
+    "@alias/routes": "src/routes"
   }
 }

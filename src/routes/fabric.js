@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const model = require('../model');
+const model = require('@alias/model');
 
 router.param('id', async (req, res, next, id) => {
     try {

@@ -1,13 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
+require('module-alias/register');
 
-var indexRouter = require('./routes');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const sassMiddleware = require('node-sass-middleware');
 
-var app = express();
+const indexRouter = require('./routes');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, '..', 'views'));
