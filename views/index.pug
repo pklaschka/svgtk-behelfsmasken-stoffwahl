@@ -10,16 +10,16 @@ block content
 
 
     h2 Verfügbare Stoffe
-    ul(uk-grid uk-lightbox)
+    ul(uk-grid uk-lightbox).uk-grid-match
         each fabric in fabrics
             li.uk-width-1-1(class="uk-width-1-2@s uk-width-1-4@m uk-width-1-6@xl")
-                div(uk-card).uk-card-default
+                div(uk-card).uk-card-default.uk-position-relative
+                    .uk-card-media.uk-card-media-top
+                        a(href=`/fabric/${fabric.id}/image` data-type='image' data-caption=`Stoff ${fabric.id}: ${fabric.name}`).uk-display-block
+                            img(src=`/fabric/${fabric.id}/image`)
                     .uk-card-body
                         h3.uk-card-title Stoff #{fabric.id}
                         p=fabric.name
-                    .uk-card-media.uk-card-media-bottom
-                        a(href=`/fabric/${fabric.id}/image` data-type='image' data-caption=`Stoff ${fabric.id}: ${fabric.name}`)
-                            img(src=`/fabric/${fabric.id}/image`)
         else
             p Derzeit sind keine Stoffe im System als "verfügbar" gekennzeichnet. Bitte versuche Sie es später erneut.
 

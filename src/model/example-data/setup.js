@@ -8,7 +8,7 @@ module.exports = async (model) => {
     for (let i = 1; i <= 5; i++)
         await model['Fabric'].create({
             image: imageData,
-            name: `Häkelblüten, die ${i}te`
+            name: `Häkelblüten, die ${i}te`.repeat(i%3)
         });
 
     const user = new model['User']();
