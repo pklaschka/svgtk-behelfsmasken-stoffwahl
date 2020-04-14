@@ -8,7 +8,7 @@ const env = process.env['NODE_ENV'] || 'development';
 var {Sequelize} = require('sequelize')
 
 let sequelize;
-if (process.env.DATABASE_URL) {
+if (process.env.DATABASE_URL && env === 'production') {
     sequelize = new Sequelize(process.env.DATABASE_URL, {
         dialect: 'postgres',
         logging: false //false
