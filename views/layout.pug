@@ -1,10 +1,15 @@
 doctype html
 html
     head
-        title=title || 'Stück vom Glück Stoffwahl'
+        meta(charset='utf-8')
+        title=title || 'Stück vom Glück Behelfsmasken'
         link(rel='stylesheet', href='/css/style.css')
         meta(name='viewport' content='width=device-width')
         meta(name='robots' content='noindex,nofollow')
+
+
+        meta( name="description" content="Handgenähte Behelfsmasken aus verschiedensten Baumwollstoffen. Stoff aussuchen und unverbindlich Anfragen.")
+        meta( name="image" content="https://www.svgtk.de/og-image.png")
 
         link(rel="apple-touch-icon", sizes="180x180", href="/favicons/apple-touch-icon.png")
         link(rel="icon", type="image/png", sizes="32x32", href="/favicons/favicon-32x32.png")
@@ -18,6 +23,21 @@ html
         meta(name="msapplication-config", content="/favicons/browserconfig.xml")
         meta(name="theme-color", content="#ffffff")
 
+        meta( itemprop="name" content="Stück vom Glück Behelfsmasken")
+        meta( itemprop="description" content="Handgenähte Behelfsmasken aus verschiedensten Baumwollstoffen. Stoff aussuchen und unverbindlich Anfragen.")
+        meta( itemprop="image" content="https://www.svgtk.de/og-image.png")
+        meta( name="twitter:card" content="summary")
+        meta( name="twitter:title" content="Stück vom Glück Behelfsmasken")
+        meta( name="twitter:description" content="Handgenähte Behelfsmasken aus verschiedensten Baumwollstoffen. Stoff aussuchen und unverbindlich Anfragen.")
+        meta( name="twitter:site" content="@mklaschka1")
+        meta( name="twitter:image:src" content="https://www.svgtk.de/og-image.png")
+        meta( name="og:title" content="Stück vom Glück Behelfsmasken")
+        meta( name="og:description" content="Handgenähte Behelfsmasken aus verschiedensten Baumwollstoffen. Stoff aussuchen und unverbindlich Anfragen.")
+        meta( name="og:url" content="https://www.svgtk.de/og-image.png")
+        meta( name="og:site_name" content="Stück vom Glück Behelfsmasken")
+        meta( name="og:locale" content="de_DE")
+        meta( name="og:type" content="website")
+
         script(src='https://kit.fontawesome.com/5723931a0c.js', crossorigin="anonymous")
 
         body
@@ -27,11 +47,11 @@ html
                     div.uk-navbar-item.uk-logo
                         img(src='/img/logo.svg' width=130)
                     ul.uk-navbar-nav
-                        li(class=(active==='start'?'uk-active':''))
+                        li(class=(active === 'start' ? 'uk-active' : ''))
                             a(href='/') Start
-                        li(class=(active==='impressum'?'uk-active':''))
+                        li(class=(active === 'impressum' ? 'uk-active' : ''))
                             a(href='/impressum') Impressum
-                        li(class=(active==='datenschutz'?'uk-active':''))
+                        li(class=(active === 'datenschutz' ? 'uk-active' : ''))
                             a(href='/datenschutz') Datenschutz
                 .uk-navbar-right
                     ul.uk-icon-nav.uk-navbar-nav
