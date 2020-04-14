@@ -17,12 +17,12 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         email: {
-            type: DataTypes.CHAR,
+            type: DataTypes.STRING,
             unique: true,
             allowNull: true
         },
         password: {
-            type: DataTypes.CHAR,
+            type: DataTypes.CHAR(60),
             allowNull: false
         }
     }, {sequelize, modelName: 'User', paranoid: true});
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
         if (isMatch)
             return user
         else
-            throw new Error('unauthorized')
+            throw new Error(`unauthorized`)
     }
 
     User.associate = (models) => {

@@ -20,7 +20,7 @@ router.post('/auth', async (req, res) => {
     try {
         return res.json({token: await auth.authenticate(req.body.email, req.body.password)})
     } catch (e) {
-        return res.json(e).sendStatus(403);
+        return res.sendStatus(403);
     }
 });
 
