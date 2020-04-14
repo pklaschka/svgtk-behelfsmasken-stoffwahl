@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 
 router.delete('/:fabricId', async (req, res) => {
     await req.fabric.destroy();
-    return res.sendStatus(200);
+    return res.sendStatus(204);
 });
 
 module.exports = router;
