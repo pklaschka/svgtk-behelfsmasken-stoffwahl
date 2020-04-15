@@ -16,7 +16,7 @@ router.param('fabricId', async (req, res, next, id) => {
 });
 
 router.get('/', async (req, res) => {
-    return res.json(await model['Fabric'].findAll({attributes: ['id', 'name'], order: 'id'}))
+    return res.json(await model['Fabric'].findAll({attributes: ['id', 'name'], order: ['id']}))
 });
 
 router.post('/', async (req, res) => {
