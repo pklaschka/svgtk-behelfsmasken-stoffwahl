@@ -26,7 +26,6 @@ router.post('/', async (req, res) => {
 
     // Process the image
     const image = await Jimp.read(req.files.image.data);
-    console.log(image);
     const imageBuffer = await image.cover(1024, 1024).quality(95).getBufferAsync(Jimp.MIME_JPEG);
 
     // Save the fabric to the DB

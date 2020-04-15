@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express_enforces_ssl());
 }
 
-app.use(logger('dev'));
+app.use(logger('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
