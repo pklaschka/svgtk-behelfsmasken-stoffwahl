@@ -8,6 +8,8 @@ const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const express_enforces_ssl = require('express-enforces-ssl');
 
+const compression = require('compression');
+
 
 const indexRouter = require('./routes');
 
@@ -24,6 +26,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express_enforces_ssl());
 }
 
+app.use(compression());
+
 app.use(logger('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,7 +37,8 @@ app.use(sassMiddleware({
   dest: path.join(__dirname, '..', 'public', 'css'),
   prefix: '/css/',
   indentedSyntax: false, // true = .sass and false = .scss
-  sourceMap: true
+  sourceMap: true,
+  outputStyle: 'compressed'
 }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
