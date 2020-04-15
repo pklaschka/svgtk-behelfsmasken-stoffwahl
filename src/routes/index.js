@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const model = require('@alias/model');
 
+/**
+ * If the hostname doesn't match the "real" host name, assume it's some sort of staging environment and advice
+ * robots not to index...
+ * @param req
+ * @param res
+ * @param next
+ * @return {*}
+ */
 function stagingIndexingPrevention(req, res, next) {
     if (req.hostname === 'www.svgtk.de') {
         return next();

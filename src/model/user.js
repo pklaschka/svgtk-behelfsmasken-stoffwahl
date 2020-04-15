@@ -3,6 +3,11 @@ const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
     class User extends Model {
+        /**
+         * Set the user's password and save
+         * @param password The new password
+         * @return {Promise<void>} Resolves on success. Rejects on failure. It's as simple as that.
+         */
         async setPassword(password) {
             this.password = await bcrypt.hash(password, 8);
             this.save();
@@ -27,6 +32,12 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {sequelize, modelName: 'User', paranoid: true});
 
+    /**
+     * Authenticates a user
+     * @param email The user's email
+     * @param password The user's password
+     * @return {Promise<User>} Resolves with the user on success. Rejects with the message `'unauthorized'` on failure.
+     */
     User.authenticate = async (email, password) => {
         const user = await User.findOne({where: {email}});
         const isMatch = await bcrypt.compare(password, user.password);
@@ -38,6 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     User.associate = (models) => {
+        // No associations here (yet?)
     }
 
     return User;
