@@ -10,7 +10,7 @@ block content
 
 
     h2 Verfügbare Stoffe
-    ul(uk-grid uk-lightbox).uk-grid-match
+    ul(uk-grid uk-lightbox uk-scrollspy="target: > li; cls: uk-animation-fade; delay: 300").uk-grid-match
         each fabric in fabrics
             li.uk-width-1-1(class="uk-width-1-2@s uk-width-1-4@m uk-width-1-6@xl")
                 div(uk-card).uk-card-default.uk-position-relative

@@ -33,4 +33,13 @@ header {
   .fab, .fas, .fal, .fad {
     font-size: 24px;
   }
+
+  #Logo {
+    height: 56px;
+    width: auto;
+  }
+
+  &.uk-background-secondary:not(.uk-navbar-transparent) {
+    background: $button-primary-color;
+  }
 }
