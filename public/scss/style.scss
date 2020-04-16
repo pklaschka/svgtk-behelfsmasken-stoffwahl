@@ -29,7 +29,7 @@ $base-link-hover-color: $accent-color;
 //@import "uikit/scss/uikit-theme.scss";
 @import "public/scss/uikit/scss/uikit";
 
-header {
+header, nav {
   .fab, .fas, .fal, .fad {
     font-size: 24px;
   }

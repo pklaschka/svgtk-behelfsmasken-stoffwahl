@@ -2,26 +2,48 @@ extends layout
 
 block content
     h1 Stück vom Glück Textilkunst Behelfsmaksen-Anfrage
-    p
-        | Aufgrund der aktuellen Lage biete ich zurzeit Behelfsmasken aus verschiedenen Baumwollstoffen an.
-    p
-        | Bitte suchen Sie sich bei Anfragen einen der verfügbaren Stoffe aus und #[strong nennen Sie bei der Bestellung die Stoffnummer].
-    p Alle Angaben zur Verfügbarkeit von Stoffen sind #[strong ohne Gewähr].
+    div.uk-panel(uk-lightbox)
+        a(href='/img/marion.jpg' class='uk-align-left@m')
+            img(data-src='/img/marion.jpg' uk-img width="256")
+        p
+            | Aufgrund der aktuellen Lage biete ich zurzeit Behelfsmasken aus verschiedenen Baumwollstoffen an.
+        p
+            | Bitte suchen Sie sich bei Anfragen einen der verfügbaren Stoffe aus und #[strong nennen Sie bei der Bestellung die Stoffnummer].
+        p Alle Angaben zur Verfügbarkeit von Stoffen sind #[strong ohne Gewähr].
+        p Bleibt gesund
+        img(uk-img data-src='/img/autogramm-marion.png' width=200 title='Marion Klaschka' alt='Marion Klaschka')
+
+    h2 Größen und Preise
+    p Die Masken gibt es in fünf Größen:
+    ul
+        li Kinder
+        li Frauen
+        li Frauen groß
+        li Männer
+        li Männer groß
+
+    p Jede Maske kostet 12,00 €.
 
 
     h2 Verfügbare Stoffe
-    ul(uk-grid uk-lightbox uk-scrollspy="target: > li; cls: uk-animation-fade; delay: 300").uk-grid-match
+    ul(uk-grid uk-lightbox uk-scrollspy="target: > li; cls: uk-animation-fade; delay: 150").uk-grid-match
         each fabric in fabrics
             li.uk-width-1-1(class="uk-width-1-2@s uk-width-1-4@m uk-width-1-6@xl")
                 div(uk-card).uk-card-default.uk-position-relative
                     .uk-card-media.uk-card-media-top
                         a(href=`/fabric/${fabric.id}/image` data-type='image' data-caption=`Stoff ${fabric.id}: ${fabric.name}`).uk-display-block
-                            img(src=`/fabric/${fabric.id}/image`)
+                            img(data-src=`/fabric/${fabric.id}/image` alt=fabric.name uk-img)
                     .uk-card-body
                         h3.uk-card-title Stoff #{fabric.id}
                         p=fabric.name
         else
             p Derzeit sind keine Stoffe im System als "verfügbar" gekennzeichnet. Bitte versuche Sie es später erneut.
+
+    h2 Zahlung und Versand
+    p Zahlung ist in Vorkasse per Überweisung oder über PayPal (auch ohne PayPal-Konto) möglich.
+    p Der Versand erfolgt per Brief (4,00 €) oder, ab 20 Masken, versandkostenfrei als Päckchen.
+    p Nach §19 UStG („Kleinunternehmerregelung“) wird keine Umsatzsteuer für den Rechnungsbetrag ausgewiesen.
+        | &nbsp;Ein Widerruf wird aufgrund der individuellen Fertigung gem. § 312g (1) Nr. 1 BGB ausgeschlossen.
 
     h2 Anfrage
     - let inquiryLink = 'mailto:info@svgtk.de?subject=Unverbindlich%20Anfrage%20Behelfsmasken'

@@ -45,7 +45,7 @@ html
                 .uk-navbar-left
                     div.uk-navbar-item.uk-logo
                         img(src='/img/logo.png' height=56)#Logo
-                    ul.uk-navbar-nav
+                    ul.uk-navbar-nav(class='uk-visible@s')
                         li(class=(active === 'start' ? 'uk-active' : ''))
                             a(href='/') Start
                         li(class=(active === 'impressum' ? 'uk-active' : ''))
@@ -53,13 +53,35 @@ html
                         li(class=(active === 'datenschutz' ? 'uk-active' : ''))
                             a(href='/datenschutz') Datenschutz
                 .uk-navbar-right
-                    ul.uk-icon-nav.uk-navbar-nav
+                    a.uk-navbar-toggle(uk-navbar-toggle-icon class='uk-hidden@s' uk-toggle='target: #mobile-nav')
+
+                    ul.uk-icon-nav.uk-navbar-nav(class='uk-visible@s')
                         li
                             a(href='https://www.instagram.com/stueckvomgluecktextilkunst' target='_blank' rel='noopener')
                                 i.fab.fa-instagram
                         li
                             a(href='https://de-de.facebook.com/stueckvomgluecktextilkunst/' target='_blank' rel='noopener')
                                 i.fab.fa-facebook
+        nav#mobile-nav(class='uk-hidden@s' uk-offcanvas='flip: true')
+            .uk-offcanvas-bar
+                button.uk-offcanvas-close(type="button" uk-close)
+
+                ul.uk-nav.uk-nav-default
+                    li(class=(active === 'start' ? 'uk-active' : ''))
+                        a(href='/') Start
+                    li(class=(active === 'impressum' ? 'uk-active' : ''))
+                        a(href='/impressum') Impressum
+                    li(class=(active === 'datenschutz' ? 'uk-active' : ''))
+                        a(href='/datenschutz') Datenschutz
+                    li
+                        ul.uk-icon-nav.uk-navbar-nav
+                            li
+                                a.uk-padding-remove-left(href='https://www.instagram.com/stueckvomgluecktextilkunst' target='_blank' rel='noopener')
+                                    i.fab.fa-instagram
+                            li
+                                a(href='https://de-de.facebook.com/stueckvomgluecktextilkunst/' target='_blank' rel='noopener')
+                                    i.fab.fa-facebook
+
         main.uk-padding
             block content
 
