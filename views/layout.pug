@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang='de')
     head
         meta(charset='utf-8')
         title=`${title ? `${title} | ` : ''}Stück vom Glück Textilkunst Behelfsmasken`
@@ -44,7 +44,7 @@ html
             nav(uk-navbar)
                 .uk-navbar-left
                     div.uk-navbar-item.uk-logo
-                        img(src='/img/logo.png' height=56)#Logo
+                        img(src='/img/logo.png' height=56 alt='Logo SVGTK')#Logo
                     ul.uk-navbar-nav(class='uk-visible@s')
                         li(class=(active === 'start' ? 'uk-active' : ''))
                             a(href='/') Start
@@ -87,7 +87,7 @@ html
 
         hr
         footer.uk-padding
-            p Die Website und das dahinterstehende Verwaltungssystem wurden von Pablo Klaschka ( #[a(target='_blank' href='https://www.pabloklaschka.de') www.pabloklaschka.de #[i.fal.fa-external-link]]) entwickelt.
-            p Der Quellcode steht offen in #[a(target='_blank' href='https://github.com/pklaschka/svgtk-behelfsmasken-stoffwahl') #[i.fab.fa-github] GitHub] zur Verfügung.
+            p Die Website und das dahinterstehende Verwaltungssystem wurden von Pablo Klaschka ( #[a(target='_blank' rel='noopener' href='https://www.pabloklaschka.de') www.pabloklaschka.de #[i.fal.fa-external-link]]) entwickelt.
+            p Der Quellcode steht offen in #[a(target='_blank' rel='noopener' href='https://github.com/pklaschka/svgtk-behelfsmasken-stoffwahl') #[i.fab.fa-github] GitHub] zur Verfügung.
         script(src='https://kit.fontawesome.com/5723931a0c.js', crossorigin='anonymous')
         script(src='/js/uikit.min.js')
