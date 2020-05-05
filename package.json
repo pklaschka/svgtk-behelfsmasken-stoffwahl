@@ -34,7 +34,7 @@
     "@types/express": "^4.17.6",
     "@types/jimp": "^0.2.28",
     "@types/sequelize": "^4.28.8",
-    "sqlite3": "^4.1.1"
+    "sqlite3": "^4.2.0"
   },
   "_moduleAliases": {
     "@alias/package": "./package.json",
