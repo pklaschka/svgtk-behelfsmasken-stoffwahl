@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
-    "@types/express": "^4.17.9",
+    "@types/express": "^4.17.10",
     "@types/jimp": "^0.2.28",
     "@types/sequelize": "^4.28.9",
     "sqlite3": "^5.0.1"
